@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html ng-app="DavidsFiesta" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>David's Fiesta Celebration</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/qrcode.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav id="header-nav" class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="index.html" class="pull-left visible-md visible-lg">
+              <div id="logo-img"></div>
+            </a>
+            <div class="navbar-brand">
+              <a href="index.html"><h1>David's Fiesta Celebration</h1></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div id="main-content" class="container">
+      <div class="jumbotron" ng-controller="InfoController as info">
+        <h2 class="text-center">Visitor Information</h2>
+        <div id="info">
+          <div id="name-div">
+            <div class="info-label">Full Name</div>
+            <div class="info-container">
+              <div class="pull-left">
+                <input
+                  ng-model="info.firstName"
+                  id="first-name"
+                  type="text"
+                  class="info-text"
+                /><br />
+                <span>First Name</span>
+              </div>
+              <div class="pull-left">
+                <input
+                  ng-model="info.lastName"
+                  id="last-name"
+                  type="text"
+                  class="info-text"
+                /><br />
+                <span>Last Name</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="info-label">Address</div>
+            <div class="info-container">
+              <select class="info-text" id="barangays" ng-model="info.address">
+                <option ng-repeat="barangay in info.barangays">
+                  {{barangay}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <div class="info-label">Contact Number</div>
+            <div class="info-container">
+              <input
+                class="info-text"
+                ng-model="info.contactNumber"
+                id="number"
+                type="text"
+              />
+            </div>
+          </div>
+          <div>
+            <div class="info-label">
+              Do you have any of the following symptoms?
+            </div>
+            <div class="info-container">
+              <input
+                class="info-checkbox"
+                type="checkbox"
+                ng-model="info.hasCough"
+              />
+              <span>New and persistent cough </span>
+              <br />
+              <input
+                class="info-checkbox"
+                type="checkbox"
+                ng-model="info.hasShortness"
+              />
+              <span>Shortness of breath or any difficulty breathing</span>
+              <br />
+              <input
+                class="info-checkbox"
+                type="checkbox"
+                ng-model="info.hasFever"
+              />
+              <span>Fever</span>
+              <br />
+              <input
+                class="info-checkbox"
+                type="checkbox"
+                ng-model="info.hasNoSymptoms"
+              />
+              <span>No Symptoms</span>
+            </div>
+          </div>
+          <div>
+            <div class="info-label">
+              Have you been in contact with anyone in the last 14 days who is
+              experiencing these symptoms?
+            </div>
+            <div class="info-container">
+              <input
+                name="hasBeenInContactSymptomatic"
+                type="radio"
+                class="info-checkbox"
+                value="Yes"
+                ng-model="info.hasBeenInContactSymptomatic"
+              />
+              <span>Yes</span>
+              <br />
+              <input
+                name="hasBeenInContactSymptomatic"
+                type="radio"
+                value="No"
+                class="info-checkbox"
+                ng-model="info.hasBeenInContactSymptomatic"
+              />
+              <span>No</span>
+            </div>
+          </div>
+          <div>
+            <div class="info-label">
+              Have you been in contact with anyone who has since tested positive
+              for Covid-19?
+            </div>
+            <div class="info-container">
+              <input
+                name="hasBeenInContactPositive"
+                type="radio"
+                class="info-checkbox"
+                value="Yes"
+                ng-model="info.hasBeenInContactPositive"
+              />
+              <span>Yes</span>
+              <br />
+              <input
+                name="hasBeenInContactPositive"
+                type="radio"
+                class="info-checkbox"
+                value="No"
+                ng-model="info.hasBeenInContactPositive"
+              />
+              <span>No</span>
+              <br />
+              <input
+                name="hasBeenInContactPositive"
+                type="radio"
+                class="info-checkbox"
+                value="Maybe"
+                ng-model="info.hasBeenInContactPositive"
+              />
+              <span>Maybe</span>
+            </div>
+          </div>
+          <div class="text-center button-container">
+            <button ng-click="info.generateQRCode()">Submit</button>
+          </div>
+        </div>
+        <div id="qrcode"></div>
+        <div
+          iligan-city-directive
+          add-barangay="info.addBarangay(barangay)"
+          id="iligan-city"
+        >
+          <a
+            href="/z/index.php?title=Abuno,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Abuno, Iligan City, Lanao del Norte, Philippines"
+            >Abuno</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Acmac,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Acmac, Iligan City, Lanao del Norte, Philippines"
+            >Acmac</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Bagong_Silang,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Bagong Silang, Iligan City, Lanao del Norte, Philippines"
+            >Bagong Silang</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Bonbonon,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Bonbonon, Iligan City, Lanao del Norte, Philippines"
+            >Bonbonon</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Bunawan,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Bunawan, Iligan City, Lanao del Norte, Philippines"
+            >Bunawan</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Buru-un,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Buru-un, Iligan City, Lanao del Norte, Philippines"
+            >Buru-un</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Dalipuga,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Dalipuga, Iligan City, Lanao del Norte, Philippines"
+            >Dalipuga</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Del_Carmen,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Del Carmen, Iligan City, Lanao del Norte, Philippines"
+            >Del Carmen</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Digkilaan,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Digkilaan, Iligan City, Lanao del Norte, Philippines"
+            >Digkilaan</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Ditucalan,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Ditucalan, Iligan City, Lanao del Norte, Philippines"
+            >Ditucalan</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Dulag,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Dulag, Iligan City, Lanao del Norte, Philippines"
+            >Dulag</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Hinaplanon,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Hinaplanon, Iligan City, Lanao del Norte, Philippines"
+            >Hinaplanon</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Hindang,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Hindang, Iligan City, Lanao del Norte, Philippines"
+            >Hindang</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Kabacsanan,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Kabacsanan, Iligan City, Lanao del Norte, Philippines"
+            >Kabacsanan</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Kalilangan,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Kalilangan, Iligan City, Lanao del Norte, Philippines"
+            >Kalilangan</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Kiwalan,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Kiwalan, Iligan City, Lanao del Norte, Philippines"
+            >Kiwalan</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Lanipao,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Lanipao, Iligan City, Lanao del Norte, Philippines"
+            >Lanipao</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Luinab,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Luinab, Iligan City, Lanao del Norte, Philippines"
+            >Luinab</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Mahayhay,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Mahayhay, Iligan City, Lanao del Norte, Philippines"
+            >Mahayhay</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Mainit,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Mainit, Iligan City, Lanao del Norte, Philippines"
+            >Mainit</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Mandulog,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Mandulog, Iligan City, Lanao del Norte, Philippines"
+            >Mandulog</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Maria_Cristina,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Maria Cristina, Iligan City, Lanao del Norte, Philippines"
+            >Maria Cristina</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Palao,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Palao, Iligan City, Lanao del Norte, Philippines"
+            >Palao</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Panoroganan,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Panoroganan, Iligan City, Lanao del Norte, Philippines"
+            >Panoroganan</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Poblacion,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Poblacion, Iligan City, Lanao del Norte, Philippines"
+            >Poblacion</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Puga-an,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Puga-an, Iligan City, Lanao del Norte, Philippines"
+            >Puga-an</a
+          >
+          •
+          <a
+            href="/z/index.php?title=Rogongon,_Iligan_City,_Lanao_del_Norte,_Philippines"
+            title="Rogongon, Iligan City, Lanao del Norte, Philippines"
+            >Rogo</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

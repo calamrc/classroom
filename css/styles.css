@@ -1,0 +1,296 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  background: #fff;
+  color: #57423f;
+}
+
+#header-nav {
+  background: url("../images/diyandi-festival.jpg") center no-repeat;
+  /*background: #57423f;*/
+  border-radius: 0;
+  border: 0;
+}
+
+#header-nav > div {
+  /*background: rgba(87, 66, 63, 0.8);*/
+  background: rgba(255, 255, 255, 0.4);
+}
+
+#logo-img {
+  background: url("../images/logo-large.png") center no-repeat;
+  width: 120px;
+  height: 120px;
+  margin: 10px 15px 10px 0;
+}
+
+.navbar-brand {
+  padding-top: 60px;
+}
+
+.navbar-brand h1 {
+  font-family: "share tech", sans-serif;
+  color: #004b75; //#e71d36;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 2.5em;
+  text-transform: uppercase;
+  line-height: 0.8;
+  text-shadow: 3px 3px 5px #57423f;
+}
+
+.navbar-brand a:hover,
+.navbar-brand a:focus {
+  text-decoration: none;
+}
+
+#iligan-city {
+  display: none;
+}
+
+#main-content h2 {
+  font-weight: bold;
+  font-size: 2em;
+  color: #e71d36;
+  letter-spacing: 3px;
+  margin-bottom: 50px;
+}
+
+#main-content div#info {
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+div.info-label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#info > div {
+  position: relative;
+  clear: both;
+  margin-bottom: 20px;
+}
+
+#main-content #name-div {
+  margin-bottom: 90px;
+}
+
+#name-div span {
+  font-size: 80%;
+}
+
+#info input.info-text {
+  color: #e71d36;
+  font-weight: bold;
+  height: 30px;
+  width: 250px;
+  margin-bottom: 5px;
+  margin-right: 15px;
+}
+
+#info input.info-checkbox {
+  margin: 0px 10px 5px 10px;
+}
+
+#info select.info-text {
+  color: #e71d36;
+  font-weight: bold;
+  height: 30px;
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+#main-content button {
+  margin: 10px auto 30px auto;
+  /*margin-top: 10px;*/
+  /*margin-bottom: 30px;*/
+  background: #fff;
+  text-transform: uppercase;
+  color: #e71d36;
+  border: 0;
+  padding: 5px 10px 5px 10px;
+  font-weight: 600;
+}
+
+#main-content button:hover {
+  background: #57423f;
+  color: #fff;
+}
+
+#nav-list {
+  margin-top: 45px;
+}
+
+#nav-list a {
+  color: #f15c32;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+}
+
+#nav-list a:hover {
+  background: #0089b7;
+  color: #f1f1e6;
+  font-weight: bold;
+}
+
+#collapsable-nav #nav-list .active > a {
+  background-color: #9fd4f0;
+}
+
+#main-content {
+  margin-top: 15px;
+}
+
+.container .jumbotron > div {
+  margin-bottom: 20px;
+}
+
+/* Home Page */
+.container .jumbotron {
+  background-color: #fff;
+  padding: 0;
+}
+
+.container .jumbotron img {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #044c64;
+}
+
+#login-region > div {
+  margin: 0px 20px 0px 20px;
+  border: 1px solid #044c64;
+  background: #f1f1e6;
+}
+
+#free-trial span {
+  font-weight: bold;
+  color: #044c64;
+}
+
+#free-trial {
+  margin-top: 60px;
+}
+
+#login-form {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+#login-form input {
+  border: 1px solid #044c64;
+  text-transform: none;
+  font-weight: 700;
+  color: #044c64;
+  font-size: 1.2em;
+}
+
+#username div {
+  margin-bottom: 5px;
+}
+
+#username .username {
+  margin-bottom: 10px;
+}
+
+#login-button {
+  margin-top: 15px;
+}
+
+#error-message {
+  font-weight: 700;
+  margin-top: -20px;
+}
+
+.panel-footer {
+  /*background: #9fd4f0;*/
+  background: #f1f1e6;
+  font-size: 0.8em;
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* Header */
+  #logo-img {
+    background: url("../images/logo-medium.png") center no-repeat;
+    width: 90px;
+    height: 90px;
+    margin: 5px 5px 5px 0;
+  }
+
+  .navbar-brand {
+    padding-top: 35px;
+  }
+
+  #nav-list {
+    margin-top: 20px;
+  }
+  /* End Header */
+
+  #free-trial {
+    margin-top: 40px;
+  }
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-brand {
+    padding-top: 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  #nav-list {
+    margin-top: 10px;
+  }
+
+  .navbar-brand h1 {
+    /* Restaurant name */
+    font-size: 2.2em; /* 1vw = 1% of viewport width */
+  }
+
+  #free-trial {
+    margin-top: 0;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+  /* Header */
+  .navbar-brand {
+    padding-top: 10px;
+    height: 80px;
+  }
+
+  .navbar-brand h1 {
+    /* Restaurant name */
+    padding-top: 10px;
+    font-size: 6vw; /* 1vw = 1% of viewport width */
+  }
+
+  #collapsable-nav a {
+    /* Collapsed nav menu text */
+    font-size: 1.2em;
+  }
+
+  .navbar-toggle {
+    margin-top: 10px;
+  }
+
+  #nav-list {
+    margin-top: 0;
+  }
+
+  #free-trial {
+    margin-top: 0;
+  }
+}
+
+#server-variables {
+  display: none;
+}
